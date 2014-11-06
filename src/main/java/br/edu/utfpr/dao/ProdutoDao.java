@@ -19,17 +19,32 @@ import javax.persistence.EntityManager;
  */
 @RequestScoped
 public class ProdutoDao {
-    @Inject
-    private EntityManager manager;
+    private final EntityManager manager;
     public ProdutoDao(){
-//        this(null);
+        this(null);
+    }
+    @Inject
+    public ProdutoDao(EntityManager manager){
+        this.manager = manager;
+    
     }
     
     public List<Produto> listaTodos(){
         return new ArrayList<Produto>();
     }
+    public Produto listarId(Long id){
+    
+        return manager.find(Produto.class, id);
+    }
     public void adicionar(Produto produto){
         manager.persist(produto);
     
     }
+    public void editar(Produto produto){
+    
+    }
+    public void remover(Produto produto){
+    
+    }
+    
 }

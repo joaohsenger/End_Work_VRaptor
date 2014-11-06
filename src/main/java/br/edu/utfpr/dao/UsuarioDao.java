@@ -18,11 +18,15 @@ import javax.persistence.EntityManager;
  */
 @RequestScoped
 public class UsuarioDao {
-    @Inject
-    private EntityManager manager;
+   private final EntityManager manager;
 
     public UsuarioDao() {
-//        this(null);
+        this(null);
+    }
+     @Inject
+    public UsuarioDao(EntityManager manager){
+        this.manager = manager;
+    
     }
     
     public List<Usuario> listaTodos(){

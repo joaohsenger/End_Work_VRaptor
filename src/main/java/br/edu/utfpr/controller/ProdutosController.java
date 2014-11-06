@@ -9,6 +9,7 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
 import br.edu.utfpr.dao.ProdutoDao;
@@ -38,10 +39,11 @@ public class ProdutosController {
                 
     }
     
-    @Path("/produtos")
+    @Post("adicionar")
     public void adiciona(Produto produto){
         dao.adicionar(produto);
-        result.redirectTo(ProdutosController.class).produtos();
+        result.include("mensagem", "Produto Adicionado com sucesso");
+        result.redirectTo(this).produtos();
     }
     @Get("/produtos/{produto.id}")
     public void visualiza(Produto produto) { 
@@ -49,7 +51,7 @@ public class ProdutosController {
     }
     @Put("/produtos/{produto.id}")
     public void atualiza(Produto produto) { 
-    
+
     }
     
     @Delete("/produtos/{produto.id}")
