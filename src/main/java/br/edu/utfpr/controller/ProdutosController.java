@@ -6,6 +6,10 @@
 package br.edu.utfpr.controller;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Delete;
+import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
 import br.edu.utfpr.dao.ProdutoDao;
 import br.edu.utfpr.model.Produto;
@@ -26,14 +30,31 @@ public class ProdutosController {
     @Inject
     private Result result;
     
+    @Get
+    @Path("/produtos")
     public List<Produto> produtos(){
 //        return new ArrayList<Produto>();
         return dao.listaTodos();
                 
     }
+    
+    @Path("/produtos")
     public void adiciona(Produto produto){
         dao.adicionar(produto);
         result.redirectTo(ProdutosController.class).produtos();
+    }
+    @Get("/produtos/{produto.id}")
+    public void visualiza(Produto produto) { 
+    
+    }
+    @Put("/produtos/{produto.id}")
+    public void atualiza(Produto produto) { 
+    
+    }
+    
+    @Delete("/produtos/{produto.id}")
+    public void remove(Produto produto) { 
+    
     }
     
 }
