@@ -21,6 +21,10 @@ import javax.persistence.EntityManager;
 public class ProdutoDao {
     @Inject
     private EntityManager manager;
+    public ProdutoDao(){
+//        this(null);
+    }
+    
     public List<Produto> listaTodos(){
         return new ArrayList<Produto>();
     }
