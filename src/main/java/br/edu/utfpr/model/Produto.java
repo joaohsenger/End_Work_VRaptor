@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package br.edu.utfpr.model;
+import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,7 @@ import javax.persistence.Column;
  */
 @Entity
 @Table
-public class Produto {
+public class Produto implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @Column(nullable = false)

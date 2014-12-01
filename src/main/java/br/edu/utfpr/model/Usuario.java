@@ -5,6 +5,7 @@
  */
 package br.edu.utfpr.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 import javax.enterprise.context.SessionScoped;
 import javax.persistence.Entity;
@@ -21,7 +22,7 @@ import javax.persistence.Column;
 @SessionScoped
 @Entity
 @Table
-public class Usuario {
+public class Usuario implements Serializable {
     
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
